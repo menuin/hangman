@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+{{word}}
+<form class="js-answerForm" method="POST">{% csrf_token %}
+    <input class="answerInput" type="text" size=10 name=answer>
+</form>
+<span class="result"></span>
+{% endblock %}
