@@ -20,14 +20,21 @@ def start_home(request):
 
 def choose_word(request,pk):
     wordList=Player.objects.get(pk=pk).words
+    player=Player.objects.get(pk=pk)
 
-    numOfWords=len(wordList)
-    choice=random.randint(1,numOfWords)
-    word=wordList[choice-1] 
-    wordJson=json.dumps(word)  # view에서 작성한 변수를 js파일로 전달하기 위함
+    if request.method=="GET": # correct answer
+        numOfWords=len(wordList)
+        choice=random.randint(1,numOfWords)
+        word=wordList[choice-1]
+        player.currentWord=word
+        player.save()
+        return render(request, 'core/play_home.html',{'pk':pk,'word':word})
 
-    if request.method=="GET":
-        return render(request, 'core/play_home.html',{'pk':pk,'word':word,'wordJson':wordJson})
+    else: # correct answer
+        if (request.POST['answer']==player.currentWord):
+            print(player.currentWord)
+            return redirect(reverse('play', kwargs={'pk':pk}))
+        else : # wrong answer
+            print("wrong")
+            return render(request, 'core/play_home.html',{'pk':pk,'word':player.currentWord})
 
-    elif request.method=="POST":
-        return JsonResponse({'pk':pk,'word':word,'wordJson':wordJson})

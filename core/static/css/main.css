@@ -1,0 +1,21 @@
+
+.alphabet span:hover{
+    cursor:pointer;
+}
+
+.checked{
+    color:rgb(231, 73, 68);
+}
+
+.word .showing {
+    color:black;
+}
+
+.word span {
+    margin-right:10px;
+    color:white;
+}
+
+::selection{
+    color:white;
+}
