@@ -5,6 +5,7 @@ from django.db import models
 class Player(models.Model):
     name=models.CharField(max_length=10)
     score=models.IntegerField(default=0)
+    wrong=models.IntegerField(default=0)
 
     words=['banana','apple','watermelon']
     currentWord=models.CharField(default="", max_length=10)

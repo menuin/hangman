@@ -1,4 +1,53 @@
-
+*{
+    margin:auto;
+}
+body{
+    background-color:black;
+}
+.name{
+    width:1000px;
+}
+/*--------------------------- header */
+header{
+    width:1000px;
+}
+.header{
+    background-color:black;
+    width:900px;
+    margin-left:60px;
+}
+/*---------------------------word section*/
+.upper_section {
+    width:1000px;
+}
+.word .showing {
+    color:black;
+}
+.word{
+    float:left;
+    width:500px;
+}
+.word span {
+    display:inline-block;
+    width:15px;
+    margin-right:5px;
+    margin-left:5px;
+    text-align: center;
+    color:white;
+    background-color:white;
+    
+}
+::selection{
+    color:white;
+}
+/*---------------------------hangman section*/
+.hangman{
+    float:left;
+}
+/*--------------------------alphabet section*/
+.alphabet{
+    width:1000px;
+}
 .alphabet span:hover{
     cursor:pointer;
 }
@@ -7,15 +56,11 @@
     color:rgb(231, 73, 68);
 }
 
-.word .showing {
-    color:black;
-}
-
-.word span {
-    margin-right:10px;
+.alphabet{
     color:white;
 }
 
-::selection{
-    color:white;
+/*---------------------- footer */
+footer{
+    width:1000px;
 }

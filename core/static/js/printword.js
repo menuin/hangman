@@ -1,4 +1,6 @@
 const wordDiv=document.querySelector(".word");
+const lineDiv=document.querySelector(".underline");
+
 
 function printWord(){
     for (var i=0;i<WORD.length;i++){

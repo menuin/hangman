@@ -8,10 +8,13 @@
     </head>
 
     <body>
-        <div class="home">
+        <header>
+            <img class="header" src="{% static 'images/hangman.png' %}">
+        </header>
+        
             {% block content %}
             {% endblock %}
-        </div>
+        
         <script>var WORD="{{word}}"</script> 
         <script src="{% static 'js/check.js' %}"></script>
         <script src="{% static 'js/printword.js' %}"></script>

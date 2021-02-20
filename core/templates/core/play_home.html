@@ -2,10 +2,12 @@
 {% load static %}
 
 {% block content %}
-<div class="word">
 
+<div class="upper_section">
+    <div class="word"></div>
+    <div class="hangman"></div>
 </div>
-
+<br>
 <div class="alphabet">
     <span >A</span>
     <span >B</span>
@@ -34,8 +36,10 @@
     <span >Y</span>
     <span >Z</span>
 </div>
-<form class="js-answerForm" method="POST">{% csrf_token %}
-    <input class="answerInput" type="text" size=10 name=answer>
-</form>
+<footer>
+    <form class="js-answerForm" method="POST">{% csrf_token %}
+        <input class="answerInput" type="text" size=10 name=answer>
+    </form>
+</footer>
 <span class="result"></span>
 {% endblock %}
