@@ -1,10 +1,12 @@
 const alphabets=document.querySelectorAll(".alphabet span");
+const hangman=document.querySelector(".hangmanImg");
 const CHECKED="checked";
 const SHOWING="showing";
+localStorage.setItem("wrong", WRONG);
 var isIn=false;
 
 function wrong(){
-
+    
 }
 function check(char){
    for (var i=0;i<WORD.length;i++){

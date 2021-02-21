@@ -44,10 +44,16 @@ header{
 .hangman{
     float:left;
     color:white;
+
+}
+
+.img1, .img2, .img3, .img4, .img5, .img6 {
+    display:none;
 }
 /*--------------------------alphabet section*/
 .alphabet{
     width:1000px;
+    clear:left;
 }
 .alphabet span:hover{
     cursor:pointer;

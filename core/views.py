@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import Player
 from django.urls import reverse
 import random
@@ -22,7 +23,7 @@ def choose_word(request,pk):
     wordList=Player.objects.get(pk=pk).words
     player=Player.objects.get(pk=pk)
 
-    if player.wrong<=6:
+    if player.wrong<=5:
         if request.method=="GET": # correct answer
             numOfWords=len(wordList)
             choice=random.randint(1,numOfWords)
@@ -57,3 +58,13 @@ def restart(request, pk):
     player.score=0
     player.save()
     return redirect(reverse('play',kwargs={'pk':pk}))
+
+
+
+def miss(request):
+    pk=request.GET['pk']
+    obj=Player.objects.get(pk=pk)
+    obj.wrong=obj.wrong+1
+    obj.save()
+    response_data={'succes':1}
+    return HttpResponse(json.dumps(response_data),content_type="application/json")
