@@ -43,6 +43,7 @@ header{
 /*---------------------------hangman section*/
 .hangman{
     float:left;
+    color:white;
 }
 /*--------------------------alphabet section*/
 .alphabet{
@@ -63,4 +64,9 @@ header{
 /*---------------------- footer */
 footer{
     width:1000px;
+}
+
+/*----------------------restart button*/
+.restart{
+    color:white;
 }
