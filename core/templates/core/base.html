@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Hangman</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
     </head>
 
@@ -17,9 +18,11 @@
         
         <script>var WORD="{{word}}"</script> 
         <script>var WRONG="{{wrong}}"</script>
-        
+        <script>var PK="{{pk}}"</script>
+      
         <script src="{% static 'js/check.js' %}"></script>
         <script src="{% static 'js/printword.js' %}"></script>
+        <script src="{% static 'js/checkanswer.js' %}"></script>
         
     </body>
 </html> 

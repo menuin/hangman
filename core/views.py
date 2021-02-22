@@ -4,6 +4,7 @@ from .models import Player
 from django.urls import reverse
 import random
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -61,10 +62,12 @@ def restart(request, pk):
 
 
 
-def miss(request):
-    pk=request.GET['pk']
-    obj=Player.objects.get(pk=pk)
-    obj.wrong=obj.wrong+1
-    obj.save()
-    response_data={'succes':1}
-    return HttpResponse(json.dumps(response_data),content_type="application/json")
+def update_miss(request,pk):
+    print("done")
+    if request.method=='POST':
+        player=Player.objects.get(pk=pk)
+        player.wrong=request.POST['currentMiss']
+        player.save()
+        message='update successful'
+
+    return HttpResponse(message)

@@ -71,7 +71,9 @@ header{
 footer{
     width:1000px;
 }
-
+.invisible {
+    display:none;
+}
 /*----------------------restart button*/
 .restart{
     color:white;

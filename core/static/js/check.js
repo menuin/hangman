@@ -5,9 +5,25 @@ const SHOWING="showing";
 localStorage.setItem("wrong", WRONG);
 var isIn=false;
 
-function wrong(){
-    
-}
+// $(function () {
+//     $.ajaxSetup({
+//         headers: { "X-CSRFToken": getCookie("csrftoken") }
+//     });
+// });
+
+// function wrong(currentMiss){
+//     // $.ajax({
+//     //     url:'play',
+//     //     data:{
+//     //         'currentMiss':currentMiss,
+//     //         'pk':PK,
+            
+//     //     },
+//     //     type:'POST' 
+//     // })
+// }
+
+
 function check(char){
    for (var i=0;i<WORD.length;i++){
        if (WORD.charAt(i)==char.toLowerCase()){
@@ -25,7 +41,10 @@ function checkAlphabet(alphabet){
     check(char);
     if (isIn==false){
         console.log("wrong");
-        wrong();
+        currentMiss=parseInt(localStorage.getItem("wrong"));
+        localStorage.setItem("wrong",currentMiss+1)
+        
+        
     }
     else{
         console.log("correct");

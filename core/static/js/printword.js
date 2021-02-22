@@ -1,5 +1,4 @@
 const wordDiv=document.querySelector(".word");
-const lineDiv=document.querySelector(".underline");
 
 
 function printWord(){
@@ -13,5 +12,6 @@ function printWord(){
 
 function init(){
     printWord();
+    
 }
 init();
