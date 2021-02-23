@@ -62,12 +62,18 @@ def restart(request, pk):
 
 
 
-def update_miss(request,pk):
-    print("done")
+def update_miss(request):
+    
     if request.method=='POST':
+        pk=request.POST['pk']
         player=Player.objects.get(pk=pk)
-        player.wrong=request.POST['currentMiss']
+        player.wrong=request.POST['miss']
         player.save()
+        print(request.POST['miss'])
         message='update successful'
 
-    return HttpResponse(message)
+        context={
+            'wrong':player.wrong,
+            'message':message,}
+
+    return HttpResponse(json.dumps(context),content_type="application/json")

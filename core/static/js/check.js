@@ -41,6 +41,7 @@ function checkAlphabet(alphabet){
     check(char);
     if (isIn==false){
         console.log("wrong");
+        
         currentMiss=parseInt(localStorage.getItem("wrong"));
         localStorage.setItem("wrong",currentMiss+1)
         
