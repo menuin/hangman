@@ -50,6 +50,7 @@ def choose_word(request,pk):
         return redirect(reverse('game_over',kwargs={'pk':pk}))
 
 def game_over(request,pk):
+    print("done")
     player=Player.objects.get(pk=pk)
     return render(request,'core/game_over.html',{'score':player.score,'player':player})
 
@@ -63,17 +64,19 @@ def restart(request, pk):
 
 
 def update_miss(request):
-    
+    pk=request.POST['pk']
+    player=Player.objects.get(pk=pk)
+
+    # if (int(player.wrong)>=7):
+    #     return redirect(reverse('game_over',kwargs={'pk':pk}))
+
     if request.method=='POST':
-        pk=request.POST['pk']
-        player=Player.objects.get(pk=pk)
         player.wrong=request.POST['miss']
         player.save()
-        print(request.POST['miss'])
         message='update successful'
 
         context={
             'wrong':player.wrong,
             'message':message,}
 
-    return HttpResponse(json.dumps(context),content_type="application/json")
+        return HttpResponse(json.dumps(context),content_type="application/json")

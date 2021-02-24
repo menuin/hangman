@@ -25,12 +25,14 @@
         <script src="{% static 'js/printword.js' %}"></script>
         <script src="{% static 'js/checkanswer.js' %}"></script>
         
+        
         <script type="text/javascript">
             const alphas = document.querySelector(".alphabet");
             
             $(alphas).click(function () {
                 var miss = parseInt(localStorage.getItem("wrong"));
                 
+                // ★★★ deliver javascript variables using ajax -> update django model ★★★
                 $.ajax({
                     type: "POST",
                     url: "{% url 'update_miss' %}",
@@ -42,6 +44,12 @@
                     dataType: "json",
 
                 })
+                
+                // ★★★ redirect to django url ★★★
+                if (miss>=7){
+                    var url="{% url 'game_over' 12345 %}".replace(/12345/,PK.toString()); // get javascript variable in django url template tag
+                    window.location.href=url;
+                }
             })
         </script>
     </body>
