@@ -1,5 +1,6 @@
 const words=document.querySelectorAll(".word span");
 const input=document.querySelector(".answerInput");
+const label=document.querySelector(".answerLabel");
 var revealed=0;
 
 const currentImg=document.querySelector(".hangmanImg");
@@ -55,6 +56,8 @@ function checkWord(){
     console.log("found all");
     input.classList.remove("invisible");
     input.classList.add(SHOWING);
+    label.classList.remove("invisible");
+    label.classList.add(SHOWING);
 
     
 }

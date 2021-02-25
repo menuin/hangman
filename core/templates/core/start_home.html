@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block content %}
+<img class="rope" src="{% static 'images/rope.png' %}"><br>
 <div class="name">
-    이름을 입력하세요
+    
     <form method="POST">{% csrf_token %}
-        <input type="text" size=20 name=name>
-        <button type="submit">시작하기</button>
+        <label class="label" for="nameInput">your name : </label> 
+        <input type="text" id="nameInput" size=20 name=name><br><br>
+        <button class="press" type="submit">PRESS ENTER TO START</button>
     </form>
 </div>
 

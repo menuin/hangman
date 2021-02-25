@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="upper_section">
-    <div class="word"></div>
+    <div class="word"><br><br><br><br><br><br><br><br><br><br><br></div>
     <div class="hangman">
         <img class="hangmanImg" src="{% static 'images/0.png' %}">
         
@@ -34,10 +34,12 @@
         <img class="img5" src="{% static 'images/5.png' %}">
         {% else %}
         <img class="img6" src="{% static 'images/6.png' %}">
-        {% endif %} -->
-        </div>
+        {% endif %}
+        </div> -->
 </div>
 <br>
+</div>
+<div class="lower_section">
 <div class="alphabet">
     <span >A</span>
     <span >B</span>
@@ -64,11 +66,12 @@
     <span >W</span>
     <span >X</span>
     <span >Y</span>
-    <span >Z</span>
+    <span >Z</span><br>
 </div>
 <footer>
     <form class="js-answerForm" method="POST">{% csrf_token %}
-        <input class="answerInput invisible" type="text" size=10 name=answer>
+        <label class="answerLabel invisible" for="answer">ANSWER : </label>
+        <input class="answerInput invisible" id="answer" type="text" size=10 name=answer>
     </form>
 </footer>
 <span class="result"></span>
