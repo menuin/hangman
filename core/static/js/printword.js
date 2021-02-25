@@ -1,6 +1,7 @@
 const wordDiv=document.querySelector(".word");
 
 
+
 function printWord(){
     for (var i=0;i<WORD.length;i++){
         const span=document.createElement("span");
@@ -12,6 +13,7 @@ function printWord(){
 
 function init(){
     printWord();
+   
     
 }
 init();

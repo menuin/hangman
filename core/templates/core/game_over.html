@@ -2,5 +2,8 @@
 {% load static %}
 
 {% block content %}
-    <a class="restart" type=submit href="{% url 'restart' pk=player.pk %}">restart</a>
+    <img class="ending" src="{% static 'images/11.png' %}"><br>
+    <div class="restart">
+        <a class="restartBtn" type=submit href="{% url 'restart' pk=player.pk %}">START AGAIN</a>
+    </div>
 {% endblock %}

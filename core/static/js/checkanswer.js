@@ -61,6 +61,9 @@ function checkWord(){
 
 
 function init(){
+    
+    document.onload=paintHangman();  // hangman painted even after answer submitted
+
     alphabets[0].addEventListener("click",function(){
         checkWord();
     });

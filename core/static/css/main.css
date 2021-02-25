@@ -74,7 +74,16 @@ footer{
 .invisible {
     display:none;
 }
-/*----------------------restart button*/
+/*----------------------game over */
+.ending {
+    height: 400px;
+    display:block;
+    margin:0 auto;
+}
 .restart{
+    align-items: center;
+}
+.restartBtn{
     color:white;
+    
 }

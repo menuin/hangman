@@ -5,23 +5,6 @@ const SHOWING="showing";
 localStorage.setItem("wrong", WRONG);
 var isIn=false;
 
-// $(function () {
-//     $.ajaxSetup({
-//         headers: { "X-CSRFToken": getCookie("csrftoken") }
-//     });
-// });
-
-// function wrong(currentMiss){
-//     // $.ajax({
-//     //     url:'play',
-//     //     data:{
-//     //         'currentMiss':currentMiss,
-//     //         'pk':PK,
-            
-//     //     },
-//     //     type:'POST' 
-//     // })
-// }
 
 
 function check(char){
