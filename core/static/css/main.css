@@ -1,6 +1,9 @@
 *{
     margin:auto;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color:black;
 }
@@ -31,6 +34,9 @@ body{
     font-family:'Permanent Marker', cursive;
     font-size:30pt;
 
+}
+#nameInput:focus{
+    outline:none;
 }
 .press{
     background-color: transparent;
@@ -141,9 +147,12 @@ footer{
     border:none;
     border-bottom:2px solid white;
     text-align: center;
-    width:150px;
+    width:200px;
     font-size:24pt;
     font-family:'Permanent Marker', cursive;
+}
+.answerInput:focus{
+    outline:none;
 }
 /*----------------------game over */
 .ending {
@@ -173,4 +182,45 @@ footer{
     100%{
         color:white;
     }
+}
+.checkRank{
+    text-align: center;
+}
+.rankBtn{
+    color:white;
+    font-family:'Permanent Marker', cursive;
+    background-color: transparent;
+    border:none;
+    text-decoration: underline;
+}
+.rankBtn:hover{
+    cursor:pointer;
+    color:aqua;
+}
+.rank{
+    color:white;
+    width:300px;
+    margin:0 auto;
+}
+.myscore{
+    color:rgb(238, 59, 36);
+}
+
+/*---------------------- win */
+.win{
+    text-align: center;
+    color:white;
+}
+.goback{
+    text-align: center;
+}
+.gobackBtn{
+    text-decoration:none;
+    font-family:'Permanent Marker', cursive;
+    color:white;
+    font-size:25pt;
+
+}
+.gobackBtn:hover{
+    color:rgb(238, 59, 36);
 }

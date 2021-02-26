@@ -13,7 +13,11 @@ def start_home(request):
     if request.method=="POST":
         name=request.POST['name']
         player=Player(name=name)
+
+        wordList=["banana","watermelon","apple"]
+        player.words=json.dumps(wordList)
         player.save()
+        print(player.words)
         pk=Player.objects.order_by('-id')[0].id
         
         return redirect(reverse('play', kwargs={'pk':pk}))
@@ -21,24 +25,32 @@ def start_home(request):
         return render(request, "core/start_home.html")
 
 def choose_word(request,pk):
-    wordList=Player.objects.get(pk=pk).words
+    jsonDec=json.decoder.JSONDecoder()
+    temp=jsonDec.decode(Player.objects.get(pk=pk).words)
+    print(len(temp))
     player=Player.objects.get(pk=pk)
-
+    
     if player.wrong<=5:
         if request.method=="GET": # correct answer
-            numOfWords=len(wordList)
+            numOfWords=len(temp)
             choice=random.randint(1,numOfWords)
-            word=wordList[choice-1]
+            word=temp[choice-1]
             player.currentWord=word
             player.save()
-            return render(request, 'core/play_home.html',{'pk':pk,'word':word,'wrong':player.wrong})
+            return render(request, 'core/play_home.html',{'pk':pk,'wordlist':temp, 'word':word,'wrong':player.wrong})
 
         else: 
             # correct answer
-            if (request.POST['answer']==player.currentWord):
+            if (request.POST['answer'].lower()==player.currentWord):
                 print(player.currentWord)
                 player.score=player.score+1
+                temp.remove(player.currentWord)
+                player.words=json.dumps(temp)
                 player.save()
+
+                if (player.words=="[]"):
+                    return render(request,'core/you_win.html',{'pk':pk})
+
                 return redirect(reverse('play', kwargs={'pk':pk}))
             else : # wrong answer
                 print("wrong")
@@ -52,7 +64,15 @@ def choose_word(request,pk):
 def game_over(request,pk):
     print("done")
     player=Player.objects.get(pk=pk)
-    return render(request,'core/game_over.html',{'score':player.score,'player':player})
+    players=Player.objects.all().order_by('-score')
+    players_list=[]
+    for rank in range(len(players)):
+        score=players[rank].score
+        name=players[rank].name
+        a=(rank+1,name,score)
+        players_list.append(a)
+
+    return render(request,'core/game_over.html',{'score':player.score,'player':player,'players_list':players_list})
 
 def restart(request, pk):
     player=Player.objects.get(pk=pk)
@@ -80,3 +100,7 @@ def update_miss(request):
             'message':message,}
 
         return HttpResponse(json.dumps(context),content_type="application/json")
+
+
+def win(request,pk):
+    return render(request, 'core/you_win.html',{'pk':pk})

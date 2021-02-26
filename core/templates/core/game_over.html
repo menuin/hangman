@@ -6,4 +6,20 @@
     <div class="restart">
         <a class="restartBtn" type=submit href="{% url 'restart' pk=player.pk %}">CLICK HERE TO START AGAIN</a>
     </div>
+    <div class="checkRank">
+        <button class="rankBtn">CHECK YOUR RANK</button>
+    </div>
+    <div class="rank invisible"> 
+
+        {% for rank, name, score in players_list %}
+            
+            {% if name == player.name %}
+                <span class="myscore">
+                    <br>{{rank}} 등 {{ name }} : {{ score }}점
+                </span>
+            {% else %}
+                <br>{{rank}} 등 {{ name }} : {{ score }}점
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endblock %}
