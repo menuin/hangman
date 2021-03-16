@@ -3,6 +3,7 @@
 
 {% block content %}
     <img class="ending" src="{% static 'images/11.png' %}"><br>
+    <div class="theanswerwas">The answer was : "{{ player.currentWord }}" !</div>
     <div class="restart">
         <a class="restartBtn" type=submit href="{% url 'restart' pk=player.pk %}">CLICK HERE TO START AGAIN</a>
     </div>

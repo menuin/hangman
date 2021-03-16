@@ -160,6 +160,10 @@ footer{
     display:block;
     margin:0 auto;
 }
+.theanswerwas {
+    color:white;
+    text-align:center;
+}
 .restart{
     text-align:center;
 }
