@@ -6,6 +6,20 @@ import random
 import json
 from django.views.decorators.csrf import csrf_exempt
 
+# codes for beautiful soup usage
+import requests
+from bs4 import BeautifulSoup
+req = requests.get('https://en.wiktionary.org/wiki/Appendix:1000_basic_English_words')
+source=req.text
+soup=BeautifulSoup(source,'html.parser')
+temp_list=soup.select("#mw-content-text > div.mw-parser-output > dl > dd > a")
+wordList = []
+
+for word in temp_list:
+    if (len(word.text)>=3):  # i'll use words longer than 3 letters
+        wordList.append(word.text)
+
+
 
 # Create your views here.
 
@@ -14,7 +28,6 @@ def start_home(request):
         name=request.POST['name']
         player=Player(name=name)
 
-        wordList=["banana","watermelon","apple"]
         player.words=json.dumps(wordList)
         player.save()
         print(player.words)
