@@ -22,7 +22,7 @@ _그림 by menuin.k_
 
 #### 난관 및 처음 써 본 것 :  
 ```
- - jquery ajax : 자바스크립트 파일을 함께 써보는 건 처음이라 서버로 데이터 전달 및 변경하는 데 어려움이 있었다..
+ - jquery ajax : 자바스크립트 파일을 함께 써보는 건 처음이라 서버로 데이터 전달 및 변경하는 데 어려움이 있었다
  - json decoder : player 모델에 listfield로 word list를 주고 싶었는데 listfield 가 없대서 
     txt field에 대신 몰아넣고 후에 temp에다가 다시 리스트로? 디코드
  - beautiful soup 으로 위키피디아에서 기초 단어 목록 (3글자 이상으로) 크롤링
