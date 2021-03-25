@@ -26,4 +26,6 @@ _그림 by menuin.k_
  - json decoder : player 모델에 listfield로 word list를 주고 싶었는데 listfield 가 없대서 
     txt field에 대신 몰아넣고 후에 temp에다가 다시 리스트로? 디코드
  - beautiful soup 으로 위키피디아에서 기초 단어 목록 (3글자 이상으로) 크롤링
+ - 배포하기
 ```
+[2021년 6월 25일까지 여기서~](http://menuin.pythonanywhere.com/)
