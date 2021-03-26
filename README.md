@@ -28,4 +28,4 @@ _그림 by menuin.k_
  - beautiful soup 으로 위키피디아에서 기초 단어 목록 (3글자 이상으로) 크롤링
  - 배포하기
 ```
-[2021년 6월 25일까지 여기서~](http://menuin.pythonanywhere.com/)
+[2021년 6월 25일까지 여기서 볼 수 있다. ](http://menuin.pythonanywhere.com/)
