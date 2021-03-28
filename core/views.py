@@ -43,12 +43,14 @@ def choose_word(request,pk):
     print(len(temp))
     player=Player.objects.get(pk=pk)
     
+    
     if player.wrong<=5:
         if request.method=="GET": # correct answer
             numOfWords=len(temp)
             choice=random.randint(1,numOfWords)
             word=temp[choice-1]
             player.currentWord=word
+            print(player.currentWord)
             player.save()
             return render(request, 'core/play_home.html',{'pk':pk,'wordlist':temp, 'word':word,'wrong':player.wrong})
 
@@ -57,6 +59,7 @@ def choose_word(request,pk):
             if (request.POST['answer'].lower()==player.currentWord):
                 print(player.currentWord)
                 player.score=player.score+1
+                player.wrong=0
                 temp.remove(player.currentWord)
                 player.words=json.dumps(temp)
                 player.save()
@@ -72,7 +75,21 @@ def choose_word(request,pk):
                 return render(request, 'core/play_home.html',{'pk':pk,'word':player.currentWord,'wrong':player.wrong})
     
     else:
-        return redirect(reverse('game_over',kwargs={'pk':pk}))
+        if (request.method=="POST"):
+            if (request.POST['answer'].lower()==player.currentWord):
+                print(player.currentWord)
+                player.score=player.score+1
+                player.wrong=0
+                temp.remove(player.currentWord)
+                player.words=json.dumps(temp)
+                player.save()
+
+                if (player.words=="[]"):
+                    return render(request,'core/you_win.html',{'pk':pk})
+
+                return redirect(reverse('play', kwargs={'pk':pk}))
+        else:
+            return redirect(reverse('game_over',kwargs={'pk':pk}))
 
 def game_over(request,pk):
     print("done")
